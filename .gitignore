@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+
+# Editor
+*.swp
+.vscode/
+.idea/
+
+# Operator-local artifacts
+release-bundle-*
+*.zip
+*.sig
+SHA256SUMS
