@@ -14,9 +14,11 @@ aiwhyskill is a Claude Cowork [custom skill](https://docs.claude.com/en/docs/cla
 
 ## How updates work
 
-Once installed, aiwhyskill checks for a newer version on every Cowork session (first command only — subsequent commands in the same session skip the check). If a newer release is on the [Releases page](https://github.com/LextechGlobal/aiwhy-skill/releases), Claude will surface the update and link you to the download. Upgrading is the same as the initial install: grab the new `aiwhyskill.zip`, re-upload via **Customize → Skills → Upload a skill**.
+Once installed, aiwhyskill checks for a newer version on every Cowork session (first command only — subsequent commands in the same session skip the check). If a newer release is on the [Releases page](https://github.com/LextechGlobal/aiwhy-skill/releases), Claude surfaces the release's **Friendly Summary** and offers to install the update for you.
 
-The check is rate-limit-tolerant: if GitHub's API is unreachable or throttled, the launcher fails silently and tries again the next Cowork session. You can force an on-demand check with `aiwhyskill check`.
+Installing happens in-chat. When you accept, Claude presents a **Save skill** card in the same Cowork conversation — click it and Cowork writes the new version into your personal skill library in the same turn. You do not need to leave the session, download the zip, or re-upload anything. Your next `aiwhyskill` command runs on the new version.
+
+The check is rate-limit-tolerant: if GitHub's API is unreachable or throttled, the launcher fails silently and tries again the next Cowork session. You can force an on-demand check with `aiwhyskill check`. Operators can suppress the check entirely during an incident by setting `AIWHYSKILL_DISABLE_UPDATE_CHECK=1` in the Cowork environment — `list` and `launch` keep working.
 
 Certain releases are flagged as **required** — if your installed version is below the required minimum, aiwhyskill's `list` / `launch` commands will refuse to run until you upgrade. Required updates exist specifically for security-affecting fixes; we avoid them otherwise.
 
